@@ -1,28 +1,40 @@
-
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
-  </head>
-  <body>
-    <a-scene webxr="referenceSpaceType:unbounded;requiredFeatures: hit-test,local-floor;
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+</head>
+
+<body>
+  <a-scene webxr="referenceSpaceType:unbounded;requiredFeatures: hit-test,local-floor;
   optionalFeatures: dom-overlay,unbounded;
   overlayElement: #overlay;">
 
     <a-plane position="0 -1 0" scale="3 3 3" rotation="-90 0 0" width="4" height="4" color="#E5E4E2"></a-plane>
-    
+
     <a-gltf-model position="-4 -0.9 -4" src="assets/tree2.glb"></a-gltf-model>
     <a-gltf-model position="4 -0.9 -4" src="assets/tree2.glb"></a-gltf-model>
     <a-gltf-model position="-4 -0.9 4" src="assets/tree1.glb"></a-gltf-model>
     <a-gltf-model position="4 -0.9 4" src="assets/tree1.glb"></a-gltf-model>
-    <a-text align="center" position="0 2 -4" scale="2 2 2" value="Save the Date!"></a-text>
-    <a-text align="center"position="0 1.5 -4" scale="1.5 1.5 1.5" value="Arya + Sohesh"></a-text>
-    <a-text align="center" position="0 1 -4" scale="1.1 1.1 1.1" value="June 15"></a-text>
 
-    <a-sky color="#87CEEB"></a-sky>
+    <a-entity position="0 0 -3">
+      <a-sphere radius="0.05" color="yellow" position="0 0 0"></a-sphere>
+      <a-circle radius="0.1" color="pink" position="0.1 0 0" rotation="-90 0 0"></a-circle>
+      <a-circle radius="0.1" color="pink" position="-0.1 0 0" rotation="-90 0 0"></a-circle>
+      <a-circle radius="0.1" color="pink" position="0 0.1 0" rotation="-90 0 0"></a-circle>
+      <a-circle radius="0.1" color="pink" position="0 -0.1 0" rotation="-90 0 0"></a-circle>
+    </a-entity>
+
+
+    <a-text align="center" color="black" position="0 2 -4" scale="2 2 2" value="Save the Date!"></a-text>
+    <a-text align="center" color="black" position="0 1.5 -4" scale="1.5 1.5 1.5" value="Arya + Sohesh"></a-text>
+    <a-text align="center" color="black" position="0 1 -4" scale="1.1 1.1 1.1" value="June 15"></a-text>
+
+    <!-- <a-sky color="#87CEEB"></a-sky> -->
 
     <a-camera position="0 1.2 3"></a-camera>
 
   </a-scene>
-  </body>
+</body>
+
 </html>
