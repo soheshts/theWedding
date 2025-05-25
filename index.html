@@ -17,7 +17,7 @@
     <a-gltf-model position="-4 -0.9 4" src="assets/tree1.glb"></a-gltf-model>
     <a-gltf-model position="4 -0.9 4" src="assets/tree1.glb"></a-gltf-model>
 
-    <a-entity position="0 0 -3" scale = >
+    <a-entity position="0 0 -3" scale=>
       <a-sphere radius="0.05" color="yellow" position="0 0 0"></a-sphere>
       <a-circle radius="0.1" color="pink" position="0.1 0 0" rotation="-90 0 0"></a-circle>
       <a-circle radius="0.1" color="pink" position="-0.1 0 0" rotation="-90 0 0"></a-circle>
@@ -25,28 +25,44 @@
       <a-circle radius="0.1" color="pink" position="0 -0.1 0" rotation="-90 0 0"></a-circle>
     </a-entity>
 
+    <!-- banana start-->
 
-  <!-- Trunk (composed of stacked cylinders to simulate taper) -->
-  <a-cylinder position="0 0.4 -4" radius="0.15" height="0.4" color="#8B5A2B"></a-cylinder>
-  <a-cylinder position="0 0.9 -4" radius="0.13" height="0.4" color="#A0522D"></a-cylinder>
-  <a-cylinder position="0 1.4 -4" radius="0.11" height="0.4" color="#CD853F"></a-cylinder>
+    <!-- Ground -->
+    <a-plane position="0 0 -4" rotation="-90 0 0" width="10" height="10" color="#C8E6C9"></a-plane>
 
-  <!-- Leaves -->
-  <a-plane position="0 1.9 -4" rotation="30 0 0" width="1.2" height="0.3" color="#228B22"></a-plane>
-  <a-plane position="0 1.9 -4" rotation="-30 0 0" width="1.2" height="0.3" color="#228B22"></a-plane>
-  <a-plane position="0 1.9 -4" rotation="0 0 30" width="1.2" height="0.3" color="#228B22"></a-plane>
-  <a-plane position="0 1.9 -4" rotation="0 0 -30" width="1.2" height="0.3" color="#228B22"></a-plane>
-  <a-plane position="0 2.0 -4" rotation="0 0 0" width="1.5" height="0.3" color="#228B22"></a-plane>
+    <!-- Trunk - layered for tapering effect -->
+    <a-cylinder position="0 0.3 -4" radius="0.16" height="0.4" color="#D2B48C"></a-cylinder>
+    <a-cylinder position="0 0.75 -4" radius="0.13" height="0.4" color="#DEB887"></a-cylinder>
+    <a-cylinder position="0 1.2 -4" radius="0.1" height="0.4" color="#F5DEB3"></a-cylinder>
+    <a-cylinder position="0 1.65 -4" radius="0.08" height="0.3" color="#FFF8DC"></a-cylinder>
 
-  <!-- Banana Bunch (group of small curved cones) -->
-  <a-entity position="0 1.6 -3.9" rotation="0 0 0">
-    <a-cone position="0.05 0 0" radius-bottom="0.03" height="0.15" rotation="0 90 30" color="yellow"></a-cone>
-    <a-cone position="-0.05 0 0" radius-bottom="0.03" height="0.15" rotation="0 90 -30" color="yellow"></a-cone>
-    <a-cone position="0 0.05 0" radius-bottom="0.03" height="0.15" rotation="30 90 0" color="yellow"></a-cone>
-    <a-cone position="0 -0.05 0" radius-bottom="0.03" height="0.15" rotation="-30 90 0" color="yellow"></a-cone>
-  </a-entity>
+    <!-- Leaves: layered and slightly curved -->
+    <!-- Leaf left -->
+    <a-plane position="-0.5 2.0 -4" rotation="0 0 15" width="1.2" height="0.25" color="#B9F6CA"></a-plane>
+    <a-plane position="-0.2 2.05 -4" rotation="0 0 5" width="1.2" height="0.25" color="#A5D6A7"></a-plane>
+    <!-- Leaf right -->
+    <a-plane position="0.5 2.0 -4" rotation="0 0 -15" width="1.2" height="0.25" color="#B9F6CA"></a-plane>
+    <a-plane position="0.2 2.05 -4" rotation="0 0 -5" width="1.2" height="0.25" color="#A5D6A7"></a-plane>
+    <!-- Leaf center -->
+    <a-plane position="0 2.1 -4" rotation="20 0 0" width="1.5" height="0.25" color="#C8E6C9"></a-plane>
+
+    <!-- Banana bunch (curved, with stem) -->
+    <a-cylinder position="0 1.8 -3.95" radius="0.02" height="0.1" rotation="90 0 0" color="#795548"></a-cylinder>
+
+    <a-entity position="0 1.75 -3.9" rotation="0 0 0">
+      <a-cone position="0.05 0 0" radius-bottom="0.03" height="0.15" rotation="0 90 30" color="#FFF59D"></a-cone>
+      <a-cone position="-0.05 0 0" radius-bottom="0.03" height="0.15" rotation="0 90 -30" color="#FFF176"></a-cone>
+      <a-cone position="0 0.05 0" radius-bottom="0.03" height="0.15" rotation="30 90 0" color="#FFEB3B"></a-cone>
+      <a-cone position="0 -0.05 0" radius-bottom="0.03" height="0.15" rotation="-30 90 0" color="#FFF176"></a-cone>
+      <a-cone position="0.03 0.03 0" radius-bottom="0.03" height="0.15" rotation="15 90 15" color="#FFEE58"></a-cone>
+    </a-entity>
+
+    <!-- Optional: soft lighting to give shape -->
+    <a-light type="ambient" color="#ffffff" intensity="0.7"></a-light>
+    <a-light type="directional" position="2 4 1" intensity="0.8" color="#ffffff"></a-light>
 
 
+    <!-- banan end -->
 
     <a-text align="center" color="black" position="0 2 -4" scale="2 2 2" value="Save the Date!"></a-text>
     <a-text align="center" color="black" position="0 1.5 -4" scale="1.5 1.5 1.5" value="Arya + Sohesh"></a-text>
