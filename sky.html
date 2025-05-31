@@ -1,29 +1,33 @@
 <html>
   <head>
-    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
   </head>
   <body>
     <a-scene>
+      <!-- Assets -->
+      <a-assets>
+        <img id="px" src="assets/image1.jpg">
+        <img id="nx" src="assets/image1.jpg">
+        <img id="py" src="top.jpg">
+        <img id="ny" src="bottom.jpg">
+        <img id="pz" src="assets/image2.jpg">
+        <img id="nz" src="assets/image2.jpg">
+      </a-assets>
 
-      <!-- Cube skybox using a box with inward-facing faces -->
-      <a-box position="0 0 0" 
-             width="2500" height="2000" depth="2500" 
-             shader="flat"
-             material="side: back; 
-                       src: #skybox-texture;">
+      <!-- Inverted Cube Skybox -->
+      <a-box position="0 0 0" depth="500" height="500" width="500"
+             material="shader: flat; side: back;"
+             src="#pz"
+             material__right="src: #px; shader: flat; side: back;" 
+             material__left="src: #nx; shader: flat; side: back;" 
+             material__top="src: #py; shader: flat; side: back;" 
+             material__bottom="src: #ny; shader: flat; side: back;" 
+             material__front="src: #pz; shader: flat; side: back;" 
+             material__back="src: #nz; shader: flat; side: back;">
       </a-box>
 
-      <!-- Sample camera and light -->
-      <a-entity position="0 1.6 0">
-        <a-camera></a-camera>
-      </a-entity>
-      <a-entity light="type: ambient; intensity: 1"></a-entity>
-
-      <!-- Add this texture asset (e.g. a cube texture atlas or sky-like image) -->
-      <a-assets>
-        <img id="skybox-texture" src="assets/image1.jpg">
-      </a-assets>
-      
+      <!-- Camera -->
+      <a-camera position="0 1.6 0"></a-camera>
     </a-scene>
   </body>
 </html>
