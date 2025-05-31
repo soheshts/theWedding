@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>A-Frame Cubemap Test</title>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+</head>
+<body>
+  <a-scene>
+    <a-assets>
+      <img id="img2" src="assets/image1.jpg"></a-assets>
+
+    <a-sky src="#img2, #img2, #img2, #img2, #img2, #img2"></a-sky>
+
+    <a-box position="0 1 -4" color="gray"></a-box>
+    <a-camera position="0 1.6 0"></a-camera>
+  </a-scene>
+</body>
+</html>
