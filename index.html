@@ -3,7 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
-  
+
 </head>
 
 <body>
@@ -30,13 +30,19 @@
       <a-text align="center" color="black" position="0 2 -4" scale="2 2 2" value="Save the Date!"></a-text>
       <a-text align="center" color="black" position="0 1.5 -4" scale="1.5 1.5 1.5" value="Arya + Sohesh"></a-text>
       <a-text align="center" color="black" position="0 1 -4" scale="1.1 1.1 1.1" value="June 15"></a-text>
-
-      <a-plane id="myButton" position="0 0.5 -4" width="1.5" height="0.5" color="#2196F3" class="clickable">
+      
+      <!-- BUTTON -->
+      <a-plane id="calButton" position="0 0.5 -4" width="1.5" height="0.5" color="#2196F3" class="clickable">
       </a-plane>
-      <a-text value="Add to calendar" align="center" color="#FFFFFF" position="0 0.5 -3.5" width="3">
+      <a-text value="Add to calendar" align="center" color="#FFFFFF" position="0 0.5 -3.5" >
       </a-text>
+
       <!-- RIGHT -->
       <a-image position="4 1.6 0" width="4.5" height="3.2" rotation="0 -90 0" src="#map"></a-image>
+<a-plane id="mapButton" position="4 1.6 0" width="1.5" height="0.5" rotation="0 -90 0" color="#2196F3" class="clickable">
+      </a-plane>
+      <a-text value="Open Map" align="center" color="#FFFFFF" position="4 1.6 0" rotation="0 -90 0">
+      </a-text>
 
       <!-- CAMERA -->
       <a-camera position="0 1.2 0"></a-camera>
@@ -57,7 +63,8 @@
     });
 
     // Attach the component to the button with the target URL
-    document.querySelector('#myButton').setAttribute('open-link', 'https://soheshts.github.io/theWedding/assets/Arya+Sohesh.ics');
+    document.querySelector('#calButton').setAttribute('open-link', 'https://soheshts.github.io/theWedding/assets/Arya+Sohesh.ics');
+    document.querySelector('#mapButton').setAttribute('open-link', 'https://maps.app.goo.gl/ciPfVumTbTLWa3Kb8');
   </script>
 </body>
 
