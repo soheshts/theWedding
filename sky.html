@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
   </head>
   <body>
     <a-scene>
@@ -26,17 +27,28 @@
 
       <!-- Camera with cursor -->
       <a-camera position="0 1.6 0">
-        <a-cursor rayOrigin="mouse" fuse="false"></a-cursor>
+        <!-- cursor for gaze (VR) and ray for mobile/touch -->
+        <a-cursor
+          rayOrigin="mouse"
+          fuse="false"
+          cursor="rayOrigin: mouse">
+        </a-cursor>
       </a-camera>
     </a-scene>
 
     <script>
-      // Add click listener after the scene is loaded
-      document.addEventListener('DOMContentLoaded', () => {
-        document.querySelector('#myButton').addEventListener('click', () => {
-          window.location.href = 'https://google.com'; // Replace with your target URL
-        });
+      // Use A-Frame's standard click/touch event listener
+      AFRAME.registerComponent('open-link', {
+        schema: {type: 'string'},
+        init: function () {
+          this.el.addEventListener('click', () => {
+            window.location.href = this.data;
+          });
+        }
       });
+
+      // Attach the component to the button with the target URL
+      document.querySelector('#myButton').setAttribute('open-link', 'https://google.com');
     </script>
   </body>
 </html>
