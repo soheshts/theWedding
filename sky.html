@@ -1,33 +1,42 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
   </head>
   <body>
     <a-scene>
-      <!-- Assets -->
-      <a-assets>
-        <img id="px" src="assets/image1.jpg">
-        <img id="nx" src="assets/image1.jpg">
-        <img id="py" src="top.jpg">
-        <img id="ny" src="bottom.jpg">
-        <img id="pz" src="assets/image2.jpg">
-        <img id="nz" src="assets/image2.jpg">
-      </a-assets>
+      <!-- Button background -->
+      <a-plane 
+        id="myButton"
+        position="0 1.5 -3"
+        width="1.5" 
+        height="0.6" 
+        color="#2196F3"
+        class="clickable">
+      </a-plane>
 
-      <!-- Inverted Cube Skybox -->
-      <a-box position="0 0 0" depth="500" height="500" width="500"
-             material="shader: flat; side: back;"
-             src="#pz"
-             material__right="src: #px; shader: flat; side: back;" 
-             material__left="src: #nx; shader: flat; side: back;" 
-             material__top="src: #py; shader: flat; side: back;" 
-             material__bottom="src: #ny; shader: flat; side: back;" 
-             material__front="src: #pz; shader: flat; side: back;" 
-             material__back="src: #nz; shader: flat; side: back;">
-      </a-box>
+      <!-- Button label -->
+      <a-text 
+        value="Go to Website"
+        align="center"
+        color="#FFFFFF"
+        position="0 1.5 -2.99"
+        width="3">
+      </a-text>
 
-      <!-- Camera -->
-      <a-camera position="0 1.6 0"></a-camera>
+      <!-- Camera with cursor -->
+      <a-camera position="0 1.6 0">
+        <a-cursor rayOrigin="mouse" fuse="false"></a-cursor>
+      </a-camera>
     </a-scene>
+
+    <script>
+      // Add click listener after the scene is loaded
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelector('#myButton').addEventListener('click', () => {
+          window.location.href = 'https://google.com'; // Replace with your target URL
+        });
+      });
+    </script>
   </body>
 </html>
